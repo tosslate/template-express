@@ -1,0 +1,53 @@
+.user-page-container {
+  background-color: #f8f9fa;
+}
+
+.user-header {
+  position: relative;
+  padding: 28px 20px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px #e9ecef;
+}
+
+.user-header-avatar {
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  margin: 12px auto;
+  border-radius: 2rem;
+}
+
+.user-header-nickname {
+  color: #343a40;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.7rem;
+}
+
+.user-list-view {}
+
+.user-list-view-item {
+  color: #343a40;
+  font-size: 0.85rem;
+  font-weight: bold;
+  line-height: 1.7rem;
+  position: relative;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.user-list-view-item:last-child {
+  border-bottom: none;
+  box-shadow: 0 1px 1px #e9ecef;
+}
+
+.user-list-view-item-icon {
+  float: right;
+  width: 0.9rem;
+  height: 0.9rem;
+  padding: 0.45rem 0;
+}

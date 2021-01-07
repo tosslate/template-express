@@ -1,0 +1,43 @@
+{
+  "name": "wxd3b1284072bda475",
+  "version": "1.0.1",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node crossorigin.js",
+    "build": "taro build --type weapp",
+    "watch": "taro build --type weapp --watch",
+    "postinstall": "echo \"console.log(JSON.stringify(require('./project.config'), null, 2))\" | node > project.config.json"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "dependencies": {
+    "@tarojs/components": "^1.0.0-beta.11",
+    "@tarojs/router": "^1.0.0-beta.11",
+    "@tarojs/taro": "^1.0.0-beta.11",
+    "@tarojs/taro-weapp": "^1.0.0-beta.11",
+    "express": "^4.16.3",
+    "http-proxy-middleware": "^0.18.0",
+    "leancloud-storage": "^3.10.0",
+    "leanengine": "^3.2.0",
+    "lodash": "^4.17.10",
+    "nervjs": "^1.3.3",
+    "validator": "^10.6.0",
+    "voca": "^1.4.0"
+  },
+  "devDependencies": {
+    "@tarojs/cli": "^1.0.0-beta.11",
+    "@tarojs/plugin-babel": "^1.0.0-beta.11",
+    "@tarojs/plugin-csso": "^1.0.0-beta.11",
+    "@tarojs/plugin-sass": "^1.0.0-beta.11",
+    "@tarojs/plugin-uglifyjs": "^1.0.0-beta.11",
+    "@tarojs/webpack-runner": "^1.0.0-beta.11",
+    "@types/react": "^16.4.11",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}

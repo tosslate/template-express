@@ -1,0 +1,72 @@
+.home-page-container {
+  background-color: #f8f9fa;
+}
+
+.user-books-list-item {
+  height: 220px;
+  padding: 20px 20px;
+  position: relative;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.user-books-list-item:last-child {
+  border-bottom: none;
+  box-shadow: 0 1px 1px #e9ecef;
+}
+
+.user-books-list-item-image {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 120px;
+  height: 160px;
+  padding: 10px 10px;
+  box-shadow: 0 1px 1px #f1f3f5;
+}
+
+.user-books-list-item-content {
+  margin-left: 160px;
+}
+
+.user-books-list-item-title {
+  color: #343a40;
+  font-size: 0.85rem;
+  font-weight: bold;
+  line-height: 1.7rem;
+}
+
+.user-books-list-item-summary {
+  color: #868e96;
+  font-size: 0.75rem;
+  line-height: 1.1rem;
+}
+
+.user-books-list-empty {
+  padding: 96px 20px;
+  text-align: center;
+}
+
+.user-books-list-empty-image {
+  width: 120px;
+  height: 120px;
+  opacity: 0.25;
+}
+
+.user-books-list-empty-text {
+  color: #adb5bd;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+}
+
+.user-books-reach-bottom {
+  text-align: center;
+  padding: 24px 24px;
+}
+
+.user-books-reach-bottom-text {
+  color: #adb5bd;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+}

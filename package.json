@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon manage.js",
-    "start": "node manage.js"
+    "start": "NODE_ENV=production node manage.js"
   },
   "dependencies": {
     "@casl/ability": "^5.4.3",

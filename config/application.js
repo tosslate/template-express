@@ -4,7 +4,8 @@ const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
 const schema = require('../app/graphql/schema')
-const { routes } = require('../config/routes')
+// const database = require('./database')
+const { routes } = require('./routes')
 
 function errorHandler(error, request, response, next) {
   if (error.name === 'UnauthorizedError') {

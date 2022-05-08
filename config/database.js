@@ -21,6 +21,8 @@ function knexConfig() {
 const config = knexConfig()
 const database = require('knex')(config)
 
+console.log(require('path').basename(process.argv[1]))
+
 module.exports = {
   database,
   config

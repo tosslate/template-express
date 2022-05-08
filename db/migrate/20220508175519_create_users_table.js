@@ -1,8 +1,9 @@
 function up({ schema }) {
   return schema.createTable('users', (table) => {
+    table.increments('id').primary()
     table.string('name')
     table.string('email').unique()
-    table.string('password_digest')
+    table.string('password_digest').notNullable()
     table.timestamps()
   })
 }

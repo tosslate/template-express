@@ -20,7 +20,7 @@ const app = express()
 
 app.use(bodyParser.json())
 app.use(morgan('dev'))
-app.use(helmet())
+// app.use(helmet())
 app.use(routes())
 app.use('/graphql', graphqlHTTP({
   rootValue: {

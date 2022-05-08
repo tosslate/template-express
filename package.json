@@ -1,43 +1,44 @@
 {
-  "name": "wxd3b1284072bda475",
+  "name": "@tosslate/express",
   "version": "1.0.1",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node crossorigin.js",
-    "build": "taro build --type weapp",
-    "watch": "taro build --type weapp --watch",
-    "postinstall": "echo \"console.log(JSON.stringify(require('./project.config'), null, 2))\" | node > project.config.json"
-  },
-  "engines": {
-    "node": "8.x"
+    "dev": "nodemon manage.js",
+    "start": "node manage.js"
   },
   "dependencies": {
-    "@tarojs/components": "^1.0.0-beta.11",
-    "@tarojs/router": "^1.0.0-beta.11",
-    "@tarojs/taro": "^1.0.0-beta.11",
-    "@tarojs/taro-weapp": "^1.0.0-beta.11",
-    "express": "^4.16.3",
-    "http-proxy-middleware": "^0.18.0",
-    "leancloud-storage": "^3.10.0",
-    "leanengine": "^3.2.0",
-    "lodash": "^4.17.10",
-    "nervjs": "^1.3.3",
-    "validator": "^10.6.0",
-    "voca": "^1.4.0"
+    "@casl/ability": "^5.4.3",
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "crypto-random-string": "^4.0.0",
+    "dateformat": "^5.0.3",
+    "express": "^4.18.1",
+    "express-async-handler": "^1.2.0",
+    "express-graphql": "^0.12.0",
+    "express-jwt": "^7.7.0",
+    "express-rate-limit": "^6.4.0",
+    "express-request-id": "^2.0.1",
+    "graphql": "^16.4.0",
+    "helmet": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^2.0.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.5",
+    "pretty-error": "^4.0.0",
+    "sanitize-html": "^2.7.0",
+    "sqlite3": "^5.0.8",
+    "statuses": "^2.0.1",
+    "string-length": "^5.0.1",
+    "superstruct": "^0.15.4",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
-    "@tarojs/cli": "^1.0.0-beta.11",
-    "@tarojs/plugin-babel": "^1.0.0-beta.11",
-    "@tarojs/plugin-csso": "^1.0.0-beta.11",
-    "@tarojs/plugin-sass": "^1.0.0-beta.11",
-    "@tarojs/plugin-uglifyjs": "^1.0.0-beta.11",
-    "@tarojs/webpack-runner": "^1.0.0-beta.11",
-    "@types/react": "^16.4.11",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.5",
-    "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "ava": "^4.2.0",
+    "nock": "^13.2.4",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
   }
 }

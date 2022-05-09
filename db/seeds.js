@@ -29,6 +29,7 @@ async function seedsTask() {
     slug: 'pallets/flask',
     user_id: pallets.id
   })
+
   await Post.query().insert({
     title: 'werkzeug',
     slug: 'pallets/werkzeug',

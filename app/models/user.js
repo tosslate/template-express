@@ -4,11 +4,15 @@ const { BaseModel } = require('./base')
 class User extends BaseModel {
   static tableName = 'users'
 
+  set password(value) {
+    this.password = value
+  }
+
   $beforeInsert(context) {
     super.$beforeInsert(context)
 
-    if (this.password_digest) {
-      this.password_digest = hashPassword(this.password_digest)
+    if (this.password) {
+      this.password_digest = hashPassword(this.password)
     }
   }
 }

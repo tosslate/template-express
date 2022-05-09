@@ -1,4 +1,5 @@
 const { environment } = require('./environment')
+const { connect } = require('../lib/database')
 const databaseUrl = process.env.DATABASE_URL
 
 function knexConfig() {
@@ -19,9 +20,7 @@ function knexConfig() {
 }
 
 const config = knexConfig()
-const database = require('knex')(config)
-
-console.log(require('path').basename(process.argv[1]))
+const database = connect(config)
 
 module.exports = {
   database,

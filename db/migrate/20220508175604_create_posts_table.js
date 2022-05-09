@@ -1,11 +1,12 @@
 function up({ schema }) {
-  return schema.createTable('posts', (table) => {
-    table.integer('user_id').references('users.id')
-    table.string('title')
-    table.string('slug').unique()
-    table.text('body')
-    table.timestamp('published_at')
-    table.timestamps()
+  return schema.createTable('posts', (t) => {
+    t.increments('id').primary()
+    t.integer('user_id').references('users.id')
+    t.string('title')
+    t.string('slug').unique()
+    t.text('body')
+    t.timestamp('published_at')
+    t.timestamps()
   })
 }
 

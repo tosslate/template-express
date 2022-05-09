@@ -1,11 +1,18 @@
-const { database } = require('../../config/database')
+const { Post } = require('../models/post')
 
 async function index(request, response) {
-  const result = await database.select()
-  return response.json({})
+  const posts = await Post.query().limit(12)
+  return response.json(posts)
 }
 
 async function show(request, response) {
-  const result = await database.select()
-  return response.json({})
+  const { id: postId } = request.params
+  const post = await Post.query().findById(postId)
+
+  return response.json(post)
+}
+
+module.exports = {
+  index,
+  show
 }

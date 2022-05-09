@@ -1,10 +1,10 @@
 function up({ schema }) {
-  return schema.createTable('users', (table) => {
-    table.increments('id').primary()
-    table.string('name')
-    table.string('email').unique()
-    table.string('password_digest').notNullable()
-    table.timestamps()
+  return schema.createTable('users', (t) => {
+    t.increments('id').primary()
+    t.string('name')
+    t.string('email').unique()
+    t.string('password_digest').notNullable()
+    t.timestamps()
   })
 }
 

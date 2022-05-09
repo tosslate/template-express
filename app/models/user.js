@@ -2,9 +2,7 @@ const { hashPassword } = require('../../lib/secure-password')
 const { BaseModel } = require('./base')
 
 class User extends BaseModel {
-  static get tableName() {
-    return 'users'
-  }
+  static tableName = 'users'
 
   $beforeInsert(context) {
     super.$beforeInsert(context)

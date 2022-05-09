@@ -3,6 +3,7 @@ const { BaseModel } = require('./base')
 
 class User extends BaseModel {
   static tableName = 'users'
+
   static get virtualAttributes() {
     return ['password']
   }

@@ -3,9 +3,8 @@ const { BaseModel } = require('./base')
 
 class User extends BaseModel {
   static tableName = 'users'
-
-  set password(value) {
-    this.password = value
+  static get virtualAttributes() {
+    return ['password']
   }
 
   $beforeInsert(context) {
@@ -13,6 +12,7 @@ class User extends BaseModel {
 
     if (this.password) {
       this.password_digest = hashPassword(this.password)
+      this.password = undefined
     }
   }
 }

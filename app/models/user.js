@@ -1,4 +1,5 @@
-const BaseModel = require('./base')
+const { hashPassword } = require('../../lib/secure-password')
+const { BaseModel } = require('./base')
 
 class User extends BaseModel {
   static get tableName() {
@@ -6,8 +7,12 @@ class User extends BaseModel {
   }
 
   $beforeInsert(context) {
-    this.created_at = new Date().toISOString()
+    super.$beforeInsert(context)
+
+    if (this.password_digest) {
+      this.password_digest = hashPassword(this.password_digest)
+    }
   }
 }
 
-module.exports = User
+module.exports = { User }

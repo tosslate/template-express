@@ -1,15 +1,17 @@
 const { Post } = require('../models/post')
 
 async function index(request, response) {
-  const posts = await Post.query().limit(12)
-  return response.json(posts)
+  const result = await Post.query().limit(12)
+  return response.json(result)
 }
 
 async function show(request, response) {
   const { id: postId } = request.params
-  const post = await Post.query().findById(postId)
+  const result = await Post.query().findById(postId)
 
-  return response.json(post)
+  return result
+    ? response.json(result)
+    : response.sendStatus(404)
 }
 
 module.exports = {

@@ -2,6 +2,7 @@ const { buildSchema } = require('graphql')
 
 module.exports = buildSchema(`
   type Query {
-    hello: String
+    hello(name: String = "stranger"): String
+    goodbye: String
   }
 `)

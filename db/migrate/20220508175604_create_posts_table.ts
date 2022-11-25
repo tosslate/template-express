@@ -1,4 +1,6 @@
-export function up({ schema }) {
+import type { Knex } from 'knex'
+
+export function up({ schema }: Knex) {
   return schema.createTable('posts', (t) => {
     t.increments('id').primary()
     t.integer('user_id').references('users.id')
@@ -10,6 +12,6 @@ export function up({ schema }) {
   })
 }
 
-export function down({ schema }) {
+export function down({ schema }: Knex) {
   return schema.dropTableIfExists('posts')
 }

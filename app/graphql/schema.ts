@@ -1,8 +1,8 @@
-const { buildSchema } = require('graphql')
+import { buildSchema } from 'graphql'
 
-module.exports = buildSchema(`
-  type Query {
-    hello(name: String = "stranger"): String
-    goodbye: String
-  }
+export default buildSchema(`
+type Query {
+  hello(name: String = "stranger"): String
+  goodbye: String
+}
 `)

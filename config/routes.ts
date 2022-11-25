@@ -1,11 +1,9 @@
-const posts = require('../app/controllers/posts_controller')
-const asyncHandler = require('express-async-handler')
-const { Router } = require('express')
+import posts from '../app/controllers/posts_controller'
+import asyncHandler from 'express-async-handler'
+import { Router } from 'express'
 
-function routes() {
+export function routes() {
   return Router()
     .get('/posts', asyncHandler(posts.index))
     .get('/posts/:id', asyncHandler(posts.show))
 }
-
-module.exports = { routes }

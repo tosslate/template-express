@@ -1,4 +1,4 @@
-function up({ schema }) {
+export function up({ schema }) {
   return schema.createTable('posts', (t) => {
     t.increments('id').primary()
     t.integer('user_id').references('users.id')
@@ -10,8 +10,6 @@ function up({ schema }) {
   })
 }
 
-function down({ schema }) {
+export function down({ schema }) {
   return schema.dropTableIfExists('posts')
 }
-
-module.exports = { up, down }

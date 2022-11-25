@@ -6,11 +6,9 @@ function resolveGoodbye() {
   return 'See ya!'
 }
 
-function values() {
+export function values() {
   return {
     hello: resolveHello,
     goodbye: resolveGoodbye
   }
 }
-
-module.exports = { values }

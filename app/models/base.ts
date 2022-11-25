@@ -1,5 +1,5 @@
-const { database } = require('../../config/database')
-const { Model } = require('objection')
+import { database } from '../../config/database'
+import { Model } from 'objection'
 
 Model.knex(database)
 
@@ -7,7 +7,7 @@ function currentTime() {
   return new Date().toISOString()
 }
 
-class BaseModel extends Model {
+export class BaseModel extends Model {
   $beforeInsert(context) {
     this.created_at = currentTime()
     this.updated_at = currentTime()
@@ -17,5 +17,3 @@ class BaseModel extends Model {
     this.updated_at = currentTime()
   }
 }
-
-module.exports = { BaseModel }

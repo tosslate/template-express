@@ -1,4 +1,12 @@
-function transform({ id, title, slug, body, user, created_at, updated_at }) {
+export function transform({
+  id,
+  title,
+  slug,
+  body,
+  user,
+  created_at,
+  updated_at
+}) {
   return {
     id,
     title,
@@ -14,11 +22,6 @@ function transform({ id, title, slug, body, user, created_at, updated_at }) {
   }
 }
 
-function eachTransform(data) {
+export function eachTransform(data) {
   return data.map((item) => transform(item))
-}
-
-module.exports = {
-  eachTransform,
-  transform
 }

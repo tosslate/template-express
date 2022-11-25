@@ -1,11 +1,12 @@
-const { errorHandler } = require('../lib/errorhandler')
-const { graphqlHTTP } = require('express-graphql')
-const bodyParser = require('body-parser')
-const express = require('express')
-const morgan = require('morgan')
-const schema = require('../app/graphql/schema')
-const resolver = require('../app/graphql/resolver')
-const { routes } = require('./routes')
+import { errorHandler } from '../lib/errorhandler'
+import { graphqlHTTP } from 'express-graphql'
+import bodyParser from 'body-parser'
+import express from 'express'
+import morgan from 'morgan'
+import schema from '../app/graphql/schema'
+import resolver from '../app/graphql/resolver'
+import { routes } from './routes'
+
 const app = express()
 
 app.use(bodyParser.json())
@@ -21,4 +22,4 @@ app.use(
   })
 )
 
-module.exports = app
+export default app

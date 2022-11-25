@@ -1,7 +1,7 @@
-const { hashPassword } = require('../../lib/secure-password')
-const { BaseModel } = require('./base')
+import { hashPassword } from '../../lib/secure-password'
+import { BaseModel } from './base'
 
-class User extends BaseModel {
+export class User extends BaseModel {
   static tableName = 'users'
 
   static get virtualAttributes() {
@@ -17,5 +17,3 @@ class User extends BaseModel {
     }
   }
 }
-
-module.exports = { User }

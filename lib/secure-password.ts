@@ -1,16 +1,14 @@
-const bcrypt = require('bcrypt')
+import bcrypt from 'bcrypt'
 
-function hashPassword(value) {
+export function hashPassword(value: string) {
   return bcrypt.hashSync(value, 10)
 }
 
-function verifyPassword(value, hash) {
+export function verifyPassword(value: string, hash: string) {
   return bcrypt.compareSync(value, hash)
 }
 
-module.exports = {
-  hashPassword,
-  verifyPassword,
+export default {
   hash: hashPassword,
   verify: verifyPassword
 }

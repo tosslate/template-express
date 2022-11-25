@@ -1,6 +1,6 @@
-const { config } = require('./config/database')
+import { config } from './config/database'
 
-module.exports = {
+export default {
   ...config,
   migrations: {
     directory: './db/migrate'

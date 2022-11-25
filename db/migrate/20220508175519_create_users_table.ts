@@ -1,4 +1,4 @@
-function up({ schema }) {
+export function up({ schema }) {
   return schema.createTable('users', (t) => {
     t.increments('id').primary()
     t.string('name')
@@ -8,8 +8,6 @@ function up({ schema }) {
   })
 }
 
-function down({ schema }) {
+export function down({ schema }) {
   return schema.dropTableIfExists('users')
 }
-
-module.exports = { up, down }

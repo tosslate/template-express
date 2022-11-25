@@ -1,8 +1,8 @@
-const { BelongsToOneRelation } = require('objection')
-const { BaseModel } = require('./base')
-const { User } = require('./user')
+import type { BelongsToOneRelation } from 'objection'
+import { BaseModel } from './base'
+import { User } from './user'
 
-class Post extends BaseModel {
+export class Post extends BaseModel {
   static tableName = 'posts'
   static relationMappings = {
     user: {
@@ -15,5 +15,3 @@ class Post extends BaseModel {
     }
   }
 }
-
-module.exports = { Post }

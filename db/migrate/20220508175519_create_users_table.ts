@@ -6,6 +6,9 @@ export function up({ schema }: Knex) {
     t.string('name')
     t.string('email').unique()
     t.string('password_digest').notNullable()
+    t.string('avatar_url')
+    t.string('homepage')
+    t.text('bio')
     t.timestamps()
   })
 }

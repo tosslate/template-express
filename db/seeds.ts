@@ -1,5 +1,5 @@
 import { Post } from '../app/models/post'
-import { User } from '../app/models/use'
+import { User } from '../app/models/user'
 
 async function getOrCreateUser({ name }) {
   const result = await User.query().findOne({ name })

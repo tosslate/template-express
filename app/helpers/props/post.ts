@@ -6,7 +6,7 @@ export function transform({
   user,
   created_at,
   updated_at
-}) {
+}: Record<string, any>) {
   return {
     id,
     title,
@@ -22,6 +22,6 @@ export function transform({
   }
 }
 
-export function eachTransform(data) {
+export function eachTransform(data: Record<string, any>[]) {
   return data.map((item) => transform(item))
 }

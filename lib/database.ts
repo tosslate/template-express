@@ -8,5 +8,5 @@ function knexLoaded() {
 }
 
 export function connect(config: Knex.Config) {
-  return !knexLoaded() && require('knex')(config)
+  return !knexLoaded() && require('knex')(config) as Knex
 }

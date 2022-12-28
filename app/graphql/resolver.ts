@@ -1,4 +1,4 @@
-function resolveHello({ name }) {
+function resolveHello({ name }: Record<string, any>) {
   return `Hello ${name}!`
 }
 

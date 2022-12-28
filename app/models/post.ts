@@ -1,5 +1,5 @@
-import { Model } from 'objection'
 import { BaseModel } from './base'
+import { Model } from 'objection'
 import { User } from './user'
 
 export class Post extends BaseModel {

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ES2020",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "esModuleInterop": true
+  },
+  "include": [
+    "./app/**/*.ts",
+    "./config/**/*.ts",
+    "./db/**/*.ts",
+    "./lib/**/*.ts",
+    "knexfile.ts",
+    "manage.ts"
+  ]
+}

@@ -17,7 +17,7 @@ export function errorHandler() {
     next: NextFunction
   ) {
     if (isNotFoundError(error)) {
-      return response.sendStatus(404)
+      return response.json({ message: statuses(404) })
     }
 
     next()

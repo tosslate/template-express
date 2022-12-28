@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon manage.ts",
-    "start": "NODE_ENV=production node manage.ts"
+    "start": "NODE_ENV=production ts-node manage.ts",
+    "db:migrate": "NODE_ENV=production knex migrate:latest"
   },
   "dependencies": {
     "@casl/ability": "^6.3.3",

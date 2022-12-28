@@ -1,4 +1,5 @@
 import type { Request, Response, NextFunction } from 'express'
+import statuses from 'statuses'
 
 export function isUnauthorizedError({ name }: Error) {
   return name === 'UnauthorizedError'

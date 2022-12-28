@@ -1,7 +1,14 @@
+import type { Request, Response, NextFunction, RequestHandler } from 'express'
 import * as posts from '../app/controllers/posts_controller'
-import asyncHandler from 'express-async-handler'
 import { Router } from 'express'
 
+function promisify(handler: RequestHandler) {
+  return (request: Request, response: Response, next?: NextFunction) =>
+    Promise.resolve(handler(request, response, next)).catch(next)
+}
+
 export function routes() {
-  return Router().get('/posts', posts.index).get('/posts/:id', posts.show)
+  return Router()
+    .get('/posts', promisify(posts.index))
+    .get('/posts/:id', promisify(posts.show))
 }

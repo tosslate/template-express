@@ -1,4 +1,4 @@
-import { errorHandler } from '../lib/errorhandler'
+import { errorHandler as error } from '../lib/errorhandler'
 import { graphqlHTTP } from 'express-graphql'
 import bodyParser from 'body-parser'
 import express from 'express'
@@ -12,7 +12,7 @@ const app = express()
 app.use(bodyParser.json())
 app.use(morgan('dev'))
 app.use(routes())
-app.use(errorHandler())
+app.use(error())
 app.use(
   '/graphql',
   graphqlHTTP({

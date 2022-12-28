@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from 'express'
-import statuses from 'statuses'
+import { NotFound } from '../app/helpers/response'
 
 export function isUnauthorizedError({ name }: Error) {
   return name === 'UnauthorizedError'
@@ -17,7 +17,7 @@ export function errorHandler() {
     next: NextFunction
   ) {
     if (isNotFoundError(error)) {
-      return response.json({ message: statuses(404) })
+      return NotFound(response)
     }
 
     next()

@@ -1,14 +1,25 @@
-import { Model } from 'objection'
+import { SecurePassword } from './concerns/secure-password'
 import { Timestamps } from './concerns/timestamps'
+import { Model } from 'objection'
+import { Post } from './post'
 
-export class User extends Timestamps(Model) {
+export class User extends Timestamps(SecurePassword(Model)) {
   id: number
   name: string
   email: string
   avatar_url: string
   homepage: string
   bio: string
-  static tableName = 'users'
-}
 
-// 3|password_digest|varchar(255)|1||0
+  static tableName = 'users'
+  static relationMappings = () => ({
+    posts: {
+      modelClass: Post,
+      relation: Model.HasManyRelation,
+      join: {
+        from: 'users.id',
+        to: 'posts.user_id'
+      }
+    }
+  })
+}

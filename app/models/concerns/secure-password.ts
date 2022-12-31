@@ -31,3 +31,7 @@ export function SecurePassword(ModelClass: typeof Model) {
     }
   }
 }
+
+// export function verifyPassword(value: string, hash: string) {
+//   return bcrypt.compareSync(value, hash)
+// }

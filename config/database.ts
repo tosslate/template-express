@@ -22,6 +22,3 @@ function knexConfig() {
 
 export const config = knexConfig()
 export const database = connect(config)
-
-// import { database } from '../../config/database'
-// Model.knex(database)

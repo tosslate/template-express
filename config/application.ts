@@ -1,19 +1,13 @@
-import { errorHandler as error } from '../lib/errorhandler'
+// import { errorHandler as error } from '../lib/errorhandler'
 import { graphqlHTTP } from 'express-graphql'
-import bodyParser from 'body-parser'
-import express from 'express'
-import morgan from 'morgan'
+import { ramaze } from 'ramaze'
 import schema from '../app/graphql/schema'
 import { values } from '../app/graphql/resolver'
 import { routes } from './routes'
 
-const app = express()
-
-app.use(bodyParser.json())
-app.use(morgan('dev'))
-app.use(routes())
-app.use(error())
-app.use(
+ramaze.use(routes())
+// ramaze.use(error())
+ramaze.use(
   '/graphql',
   graphqlHTTP({
     rootValue: values(),
@@ -22,4 +16,4 @@ app.use(
   })
 )
 
-export default app
+export default ramaze

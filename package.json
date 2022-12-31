@@ -24,7 +24,7 @@
     "nodemailer": "^6.8.0",
     "objection": "^3.0.1",
     "pretty-error": "^4.0.0",
-    "ramaze": "^1.0.3",
+    "ramaze": "^1.0.8",
     "sanitize-html": "^2.8.1",
     "sqlite3": "^5.1.4",
     "statuses": "^2.0.1",

@@ -6,6 +6,10 @@ function hashPassword(value: string) {
   return bcrypt.hashSync(value, 10)
 }
 
+function verifyPassword(value: string, hash: string) {
+  return bcrypt.compareSync(value, hash)
+}
+
 export function SecurePassword(ModelClass: typeof Model) {
   return class extends ModelClass {
     protected password: string
@@ -25,13 +29,13 @@ export function SecurePassword(ModelClass: typeof Model) {
       this.password && this.securePassword()
     }
 
+    verifyPassword(value: string) {
+      return verifyPassword(value, this.password_digest)
+    }
+
     private securePassword() {
       this.password_digest = hashPassword(this.password)
       this.password = undefined
     }
   }
 }
-
-// export function verifyPassword(value: string, hash: string) {
-//   return bcrypt.compareSync(value, hash)
-// }

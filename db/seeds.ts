@@ -6,7 +6,20 @@ import { Client } from '@tosslate/mela'
 
 const mela = new Client()
 
+async function getOrCreateCategory() {
+// id: number
+// name: string
+// slug: string
+// position: number
+// description: string
+// total_posts: number
+// parent_id: number
+}
+
 export async function seedsTask() {
+
+const d = await mela.users.list()
+console.log(d)
 }
 
 // async function getOrCreateUser({ name }) {
@@ -29,7 +42,7 @@ export async function seedsTask() {
 //   await Post.query().truncate()
 //   await User.query().truncate()
 
-//   const spoqa = await getOrCreateUser({ name: 'spoqa' })
+//   const spoqa = await [getOrCreateUser]({ name: 'spoqa' })
 //   const pallets = await getOrCreateUser({ name: 'pallets' })
 
 //   await Post.query().insert({
@@ -45,6 +58,6 @@ export async function seedsTask() {
 //   })
 // }
 
-// seedsTask()
-//   .then(() => process.exit())
-//   .catch(console.error)
+seedsTask()
+  .then(() => process.exit())
+  .catch(console.error)

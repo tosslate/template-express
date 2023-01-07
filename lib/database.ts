@@ -7,9 +7,8 @@ function knexLoaded() {
   return basename(`${knexPath}`) === 'knex'
 }
 
-export function connect(config: Knex.Config) {
-  return !knexLoaded() && (require('knex')(config) as Knex)
-}
+export const loaded = knexLoaded()
 
-// import { database } from '../../config/database'
-// Model.knex(database)
+export function connect(config: Knex.Config) {
+  return !loaded && require('knex')(config) as Knex
+}

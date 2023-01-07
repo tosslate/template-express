@@ -1,14 +1,15 @@
-import { environment } from './environment'
-import { connect } from '../lib/database'
+import { loaded, connect } from '../lib/database'
+import { environment } from 'ramaze'
+import { Model } from 'objection'
 
-const databaseUrl = process.env.DATABASE_URL
+const pg = {
+  client: 'pg',
+  connection: process.env.DATABASE_URL
+}
 
 function knexConfig() {
-  if (databaseUrl) {
-    return {
-      client: 'pg',
-      connection: databaseUrl
-    }
+  if (pg.connection) {
+    return pg
   }
 
   return {
@@ -22,3 +23,5 @@ function knexConfig() {
 
 export const config = knexConfig()
 export const database = connect(config)
+
+loaded && Model.knex(database)

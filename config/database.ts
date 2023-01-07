@@ -1,6 +1,4 @@
-import { loaded, connect } from '../lib/database'
 import { environment } from 'ramaze'
-import { Model } from 'objection'
 
 const pg = {
   client: 'pg',
@@ -22,6 +20,3 @@ function knexConfig() {
 }
 
 export const config = knexConfig()
-export const database = connect(config)
-
-loaded && Model.knex(database)

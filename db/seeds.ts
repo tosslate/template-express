@@ -5,7 +5,10 @@ import { Tag } from '../app/models/tag'
 import { Client } from '@tosslate/mela'
 
 const mela = new Client()
-console.log(mela)
+
+export async function seedsTask() {
+}
+
 // async function getOrCreateUser({ name }) {
 //   const result = await User.query().findOne({ name })
 //   const email = `${name}@users.noreply.github.com`
@@ -22,7 +25,7 @@ console.log(mela)
 //   )
 // }
 
-// async function seedsTask() {
+// async function []() {
 //   await Post.query().truncate()
 //   await User.query().truncate()
 

@@ -1,4 +1,3 @@
-// import type { Request, Response, NextFunction, RequestHandler } from 'express'
 import * as posts from '../app/controllers/posts_controller'
 import { createRouter } from 'ramaze'
 

@@ -10,5 +10,5 @@ function knexLoaded() {
 export const loaded = knexLoaded()
 
 export function connect(config: Knex.Config) {
-  return !loaded && require('knex')(config) as Knex
+  return !loaded && (require('knex')(config) as Knex)
 }

@@ -1,14 +1,4 @@
-import type { UserObject } from './user_serializer'
-
-export type PostObject = {
-  id: string
-  title: string
-  slug: string
-  body: string
-  user?: UserObject
-  created_at: string
-  updated_at: string
-}
+import { transformKeys as transformUserKeys } from './user_serializer'
 
 export function transformKeys({
   id,
@@ -18,17 +8,13 @@ export function transformKeys({
   user,
   created_at,
   updated_at
-}: Record<string, any>): PostObject {
+}: Record<string, any> = {}) {
   return {
     id,
     title,
     slug,
     body,
-    user: {
-      id: user?.id,
-      name: user?.name,
-      email: user?.email
-    },
+    user: transformUserKeys(user),
     created_at,
     updated_at
   }

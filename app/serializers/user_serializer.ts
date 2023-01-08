@@ -1,5 +1,17 @@
-export type UserObject = {
-  id: number
-  name: string
-  email: string
+export function transformKeys({
+  id,
+  name,
+  email,
+  avatar_url,
+  homepage,
+  bio
+}: Record<string, any> = {}) {
+  return {
+    id,
+    name,
+    email,
+    avatar_url,
+    homepage,
+    bio
+  }
 }

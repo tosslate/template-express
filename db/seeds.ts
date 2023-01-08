@@ -82,7 +82,7 @@ export async function seedsTask() {
 
   const tag = (await findOrCreate(Tag, 'name', { name: '计算机网络' })) as Tag
   const postTag = await database
-    .select('post_tags')
+    .table('post_tags')
     .where({ post_id: post.id, tag_id: tag.id })
     .first()
 

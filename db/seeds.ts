@@ -2,33 +2,71 @@ import { Category, Post, Tag, User } from '../app/models'
 import { findOrCreate } from '../lib/utils'
 
 export async function seedsTask() {
-await findOrCreate(Category, 'slug', { name: '漫画', slug: 'comic' })
-await findOrCreate(Category, 'slug', { name: '艺术', slug: 'art' })
+  const art = (await findOrCreate(Category, 'slug', {
+    name: '艺术',
+    slug: 'art'
+  })) as Category
 
-await findOrCreate(Category, 'slug', { name: '绘画', slug: 'painting' })
-await findOrCreate(Category, 'slug', { name: '影视', slug: 'film' })
-await findOrCreate(Category, 'slug', { name: '舞蹈', slug: 'dance' })
+  const computer = (await findOrCreate(Category, 'slug', {
+    name: '计算机',
+    slug: 'computer'
+  })) as Category
 
-await findOrCreate(Category, 'slug', { name: '科学技术', slug: 'technology' })
-await findOrCreate(Category, 'slug', { name: '工业技术', slug: 'industrial-technology' })
-await findOrCreate(Category, 'slug', { name: '自然科学', slug: 'natural-sciences' })
+  const technology = (await findOrCreate(Category, 'slug', {
+    name: '科学技术',
+    slug: 'technology'
+  })) as Category
 
-await findOrCreate(Category, 'slug', { name: '计算机', slug: 'computer' })
-await findOrCreate(Category, 'slug', { name: '人工智能', slug: 'ai' })
-await findOrCreate(Category, 'slug', { name: '图像视频', slug: 'multi-media' })
-await findOrCreate(Category, 'slug', { name: '编程语言', slug: 'programming-language' })
+  await findOrCreate(Category, 'slug', { name: '漫画', slug: 'comic' })
+  await findOrCreate(Category, 'slug', {
+    name: '影视',
+    slug: 'film',
+    parent_id: art.id
+  })
 
+  await findOrCreate(Category, 'slug', {
+    name: '舞蹈',
+    slug: 'dance',
+    parent_id: art.id
+  })
+
+  await findOrCreate(Category, 'slug', {
+    name: '绘画',
+    slug: 'painting',
+    parent_id: art.id
+  })
+
+  await findOrCreate(Category, 'slug', {
+    name: '人工智能',
+    slug: 'ai',
+    parent_id: computer.id
+  })
+
+  await findOrCreate(Category, 'slug', {
+    name: '图像视频',
+    slug: 'multi-media',
+    parent_id: computer.id
+  })
+
+  await findOrCreate(Category, 'slug', {
+    name: '编程语言',
+    slug: 'programming-language',
+    parent_id: computer.id
+  })
+
+  await findOrCreate(Category, 'slug', {
+    name: '工业技术',
+    slug: 'industrial-technology',
+    parent_id: technology.id
+  })
+
+  await findOrCreate(Category, 'slug', {
+    name: '自然科学',
+    slug: 'natural-sciences',
+    parent_id: technology.id
+  })
 }
 
-
-
-
-
-
-
-
-
-// parent_id
 //   const email = `${name}@users.noreply.github.com`
 //       password: `hash_${name}`,
 //   await Post.query().truncate()
@@ -46,6 +84,6 @@ await findOrCreate(Category, 'slug', { name: '编程语言', slug: 'programming-
 //     user_id: pallets.id
 //   })
 // }
-// seedsTask()
-//   .then(() => process.exit())
-//   .catch(console.error)
+seedsTask()
+  .then(() => process.exit())
+  .catch(console.error)

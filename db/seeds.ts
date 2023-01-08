@@ -1,4 +1,4 @@
-import { Category, Post, Tag, User } from '../app/models'
+import { Category, Post, Tag, User, database } from '../app/models'
 import { findOrCreate } from '../lib/utils'
 
 export async function seedsTask() {
@@ -72,17 +72,27 @@ export async function seedsTask() {
     password: 'hash_flask'
   })) as User
 
-  const post = await findOrCreate(Post, 'slug', {
+  const post = (await findOrCreate(Post, 'slug', {
     slug: 'slug-1',
     title: '网络是怎样连接的',
     body: '',
     user_id: flask.id,
     category_id: computer.id
-  }) as Post
+  })) as Post
+
+  const tag = (await findOrCreate(Tag, 'name', { name: '计算机网络' })) as Tag
+  const postTag = await database
+    .select('post_tags')
+    .where({ post_id: post.id, tag_id: tag.id })
+    .first()
+
+  if (!postTag) {
+    await database
+      .insert({ post_id: post.id, tag_id: tag.id })
+      .into('post_tags')
+  }
+
+  database.destroy()
 }
 
-//   await Post.query().insert({
-// }
-seedsTask()
-  .then(() => process.exit())
-  .catch(console.error)
+seedsTask().catch(console.error)

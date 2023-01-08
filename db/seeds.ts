@@ -1,9 +1,7 @@
-import { Category } from '../app/models/category'
-import { Post } from '../app/models/post'
-import { User } from '../app/models/user'
-import { Tag } from '../app/models/tag'
+import { Category, Post, Tag, User } from '../app/models'
 
-async function getOrCreateCategory() {
+async function findOrCreateCategory() {
+
 // id: number
 // name: string
 // slug: string

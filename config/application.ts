@@ -1,4 +1,3 @@
-import '../app/helpers/database'
 import { graphqlHTTP } from 'express-graphql'
 import { values } from '../app/graphql/resolver'
 import { schema } from '../app/graphql/schema'

@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express'
-import { Post } from '../models/post'
+import { Post } from '../models'
 import { transformKeys } from '../serializers/post_serializer'
 
 export async function index(request: Request, response: Response) {

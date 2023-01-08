@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express'
-import { User } from '../models/user'
+import { User } from '../models'
 
 export async function index(request: Request, response: Response) {
   const result = await User.query().limit(12)

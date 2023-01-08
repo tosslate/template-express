@@ -1,3 +1,4 @@
+import type { Knex } from 'knex'
 import { environment } from 'ramaze'
 
 const pg = {
@@ -19,4 +20,8 @@ function knexConfig() {
   }
 }
 
-export const config = knexConfig()
+export const config = knexConfig() as Knex.Config
+
+if (environment === 'development') {
+  config.debug = true
+}

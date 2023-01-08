@@ -3,13 +3,13 @@ import { Post } from '../models'
 import { transformKeys } from '../serializers/post_serializer'
 
 export async function index(request: Request, response: Response) {
-  const result = await Post.query().withGraphFetched('user').limit(12)
+  const result = await Post.query().withGraphFetched('category').limit(12)
   return response.json(result.map(transformKeys))
 }
 
 export async function show(request: Request, response: Response) {
   const { id: postId } = request.params
-  const result = await Post.query().withGraphFetched('user').findById(postId)
+  const result = await Post.query().withGraphFetched(['category', 'user', 'tags']).findById(postId)
 
   return result
     ? response.json(transformKeys(result))

@@ -65,24 +65,23 @@ export async function seedsTask() {
     slug: 'natural-sciences',
     parent_id: technology.id
   })
+
+  const flask = (await findOrCreate(User, 'email', {
+    name: 'flask',
+    email: 'flask@users.noreply.github.com',
+    password: 'hash_flask'
+  })) as User
+
+  const post = await findOrCreate(Post, 'slug', {
+    slug: 'slug-1',
+    title: '网络是怎样连接的',
+    body: '',
+    user_id: flask.id,
+    category_id: computer.id
+  }) as Post
 }
 
-//   const email = `${name}@users.noreply.github.com`
-//       password: `hash_${name}`,
-//   await Post.query().truncate()
-//   await User.query().truncate()
-//   const spoqa = await [getOrCreateUser]({ name: 'spoqa' })
-//   const pallets = await getOrCreateUser({ name: 'pallets' })
 //   await Post.query().insert({
-//     title: 'flask',
-//     slug: 'pallets/flask',
-//     user_id: pallets.id
-//   })
-//   await Post.query().insert({
-//     title: 'werkzeug',
-//     slug: 'pallets/werkzeug',
-//     user_id: pallets.id
-//   })
 // }
 seedsTask()
   .then(() => process.exit())

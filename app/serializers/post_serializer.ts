@@ -6,6 +6,7 @@ export function transformKeys({
   slug,
   body,
   user,
+  category,
   created_at,
   updated_at
 }: Record<string, any> = {}) {
@@ -15,6 +16,7 @@ export function transformKeys({
     slug,
     body,
     user: transformUserKeys(user),
+    category,
     created_at,
     updated_at
   }

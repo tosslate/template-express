@@ -1,6 +1,7 @@
 import { graphqlHTTP } from 'express-graphql'
-import { schema } from '../app/graphql/schema'
+import { database } from '../app/helpers/database'
 import { values } from '../app/graphql/resolver'
+import { schema } from '../app/graphql/schema'
 import { routes } from './routes'
 import { ramaze } from 'ramaze'
 

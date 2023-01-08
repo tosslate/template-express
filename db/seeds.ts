@@ -2,9 +2,6 @@ import { Category } from '../app/models/category'
 import { Post } from '../app/models/post'
 import { User } from '../app/models/user'
 import { Tag } from '../app/models/tag'
-import { Client } from '@tosslate/mela'
-
-const mela = new Client()
 
 async function getOrCreateCategory() {
 // id: number
@@ -17,9 +14,6 @@ async function getOrCreateCategory() {
 }
 
 export async function seedsTask() {
-
-const d = await mela.users.list()
-console.log(d)
 }
 
 // async function getOrCreateUser({ name }) {

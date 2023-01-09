@@ -6,5 +6,6 @@ export async function index(request: Request, response: Response) {
     .withGraphFetched('children')
     .whereNull('parent_id')
     .limit(12)
+
   return response.json(result)
 }

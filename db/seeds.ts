@@ -1,70 +1,30 @@
 import { Category, Post, Tag, User, database } from '../app/models'
 import { findOrCreate } from '../lib/utils'
 
+async function addCategory(name: string, slug: string, parent_id?: number) {
+  return (
+    parent_id
+      ? await findOrCreate(Category, 'slug', { name, slug, parent_id })
+      : await findOrCreate(Category, 'slug', { name, slug })
+  ) as Category
+}
+
 export async function seedsTask() {
-  const art = (await findOrCreate(Category, 'slug', {
-    name: '艺术',
-    slug: 'art'
-  })) as Category
+  const art = await addCategory('艺术', 'art')
+  const computer = await addCategory('计算机', 'computer')
+  const technology = await addCategory('科学技术', 'technology')
 
-  const computer = (await findOrCreate(Category, 'slug', {
-    name: '计算机',
-    slug: 'computer'
-  })) as Category
+  await addCategory('漫画', 'comic')
+  await addCategory('影视', 'film', art.id)
+  await addCategory('舞蹈', 'dance', art.id)
+  await addCategory('绘画', 'painting', art.id)
 
-  const technology = (await findOrCreate(Category, 'slug', {
-    name: '科学技术',
-    slug: 'technology'
-  })) as Category
+  await addCategory('人工智能', 'ai', computer.id)
+  await addCategory('图像视频', 'multi-media', computer.id)
+  await addCategory('编程语言', 'programming-language', computer.id)
 
-  await findOrCreate(Category, 'slug', { name: '漫画', slug: 'comic' })
-  await findOrCreate(Category, 'slug', {
-    name: '影视',
-    slug: 'film',
-    parent_id: art.id
-  })
-
-  await findOrCreate(Category, 'slug', {
-    name: '舞蹈',
-    slug: 'dance',
-    parent_id: art.id
-  })
-
-  await findOrCreate(Category, 'slug', {
-    name: '绘画',
-    slug: 'painting',
-    parent_id: art.id
-  })
-
-  await findOrCreate(Category, 'slug', {
-    name: '人工智能',
-    slug: 'ai',
-    parent_id: computer.id
-  })
-
-  await findOrCreate(Category, 'slug', {
-    name: '图像视频',
-    slug: 'multi-media',
-    parent_id: computer.id
-  })
-
-  await findOrCreate(Category, 'slug', {
-    name: '编程语言',
-    slug: 'programming-language',
-    parent_id: computer.id
-  })
-
-  await findOrCreate(Category, 'slug', {
-    name: '工业技术',
-    slug: 'industrial-technology',
-    parent_id: technology.id
-  })
-
-  await findOrCreate(Category, 'slug', {
-    name: '自然科学',
-    slug: 'natural-sciences',
-    parent_id: technology.id
-  })
+  await addCategory('工业技术', 'industrial-technology', technology.id)
+  await addCategory('自然科学', 'natural-sciences', technology.id)
 
   const flask = (await findOrCreate(User, 'email', {
     name: 'flask',

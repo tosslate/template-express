@@ -3,7 +3,7 @@ import { Timestamps } from './concerns/timestamps'
 import { Model } from 'objection'
 import { Post } from './post'
 
-export class User extends Timestamps(SecurePassword(Model)) {
+export class User extends SecurePassword(Timestamps(Model)) {
   id: number
   name: string
   email: string

@@ -1,4 +1,8 @@
-function resolveHello({ name }: Record<string, any>) {
+interface HelloProps {
+  name: string
+}
+
+function resolveHello({ name }: HelloProps) {
   return `Hello ${name}!`
 }
 
